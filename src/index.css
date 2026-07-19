@@ -1,0 +1,6 @@
+/* Bootstrap styles live in styles/global.css, sections.css, fallback.css
+   (imported from App.tsx). This file is intentionally minimal. */
+
+#root {
+  min-height: 100svh;
+}

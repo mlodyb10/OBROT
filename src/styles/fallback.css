@@ -1,0 +1,13 @@
+/* Applied only when <html> has `no-scroll-timeline` (browser lacks CSS
+   scroll-driven animations — see useScrollTimelineSupport). useScrollProgress
+   writes --scroll-progress (0..1); these rules map it onto the kinetic bits.
+   Reveals + the rotating seal + the marquee do NOT depend on scroll timelines
+   (IntersectionObserver / infinite CSS animations), so they need no fallback. */
+
+.no-scroll-timeline .progress-bar__fill {
+  transform: scaleX(var(--scroll-progress, 0));
+}
+
+.no-scroll-timeline .divider__mark {
+  transform: rotate(calc(var(--scroll-progress, 0) * 540deg));
+}
