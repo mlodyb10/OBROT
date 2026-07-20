@@ -36,9 +36,11 @@
 }
 
 .nav__brand-mark {
-  width: 26px;
-  height: 26px;
+  width: 30px;
+  height: 30px;
   animation: spin 9s linear infinite;
+  /* The navbar floats over the hero image and its own scrim, both dark */
+  --logo-carve: var(--espresso);
 }
 
 .nav__links {
@@ -249,8 +251,8 @@
 }
 
 .seal__center svg {
-  width: 34%;
-  height: 34%;
+  width: 48%;
+  height: 48%;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -8,6 +8,7 @@ import {
   type ReactNode,
 } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { Logo } from '../components/Logo'
 
 type Phase = 'idle' | 'covering' | 'revealing'
 
@@ -70,16 +71,7 @@ export function RouteTransitionProvider({ children }: { children: ReactNode }) {
     <TransitionContext.Provider value={go}>
       {children}
       <div className={`curtain curtain--${phase}`} aria-hidden="true">
-        <svg className="curtain__mark" viewBox="0 0 64 64" fill="none">
-          <circle cx="32" cy="32" r="20" stroke="currentColor" strokeWidth="4" />
-          <circle cx="32" cy="32" r="6" fill="currentColor" />
-          <path
-            d="M32 6 A26 26 0 0 1 58 32"
-            stroke="currentColor"
-            strokeWidth="4"
-            strokeLinecap="round"
-          />
-        </svg>
+        <Logo className="curtain__mark" />
       </div>
     </TransitionContext.Provider>
   )

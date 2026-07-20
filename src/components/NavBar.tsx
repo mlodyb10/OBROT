@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { site } from '../data/site'
+import { Logo } from './Logo'
 import { TransitionLink } from '../router/TransitionLink'
 import { useRouteTransition } from '../router/RouteTransition'
 import { useSmoothScrollTo } from '../hooks/useSmoothScrollTo'
@@ -32,16 +33,7 @@ export function NavBar() {
   return (
     <nav className={['nav', scrolled ? 'nav--scrolled' : ''].join(' ')}>
       <TransitionLink to="/" className="nav__brand">
-        <svg className="nav__brand-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <circle cx="32" cy="32" r="20" stroke="var(--cobalt)" strokeWidth="5" />
-          <circle cx="32" cy="32" r="6" fill="var(--cobalt)" />
-          <path
-            d="M32 6 A26 26 0 0 1 58 32"
-            stroke="var(--cobalt)"
-            strokeWidth="5"
-            strokeLinecap="round"
-          />
-        </svg>
+        <Logo className="nav__brand-mark" />
         {site.name}
       </TransitionLink>
 

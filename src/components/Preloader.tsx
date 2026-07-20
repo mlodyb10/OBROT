@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Logo } from './Logo'
 
 /** Minimum time the loader stays up, so it reads as intentional, not a flash. */
 const MIN_DURATION = 1500
@@ -67,16 +68,7 @@ export function Preloader({ onDone }: { onDone: () => void }) {
       aria-label="Ładowanie strony"
     >
       <div className="preloader__inner">
-        <svg className="preloader__mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <circle cx="32" cy="32" r="20" stroke="var(--cobalt)" strokeWidth="4" />
-          <circle cx="32" cy="32" r="6" fill="var(--cobalt)" />
-          <path
-            d="M32 6 A26 26 0 0 1 58 32"
-            stroke="var(--cobalt)"
-            strokeWidth="4"
-            strokeLinecap="round"
-          />
-        </svg>
+        <Logo className="preloader__mark" />
 
         <span className="preloader__word">OBRÓT</span>
         <span className="preloader__tag">Specialty espresso bar · Katowice</span>

@@ -28,6 +28,11 @@
   /* Driven by JS fallback / scroll timeline */
   --scroll-progress: 0;
 
+  /* Logo tones — --logo-carve must match whatever sits behind the mark,
+     because those lines carve the spiral out of the solid shapes. */
+  --logo-fill: var(--cobalt);
+  --logo-carve: var(--espresso);
+
   color-scheme: dark;
 }
 
@@ -87,6 +92,11 @@ img {
 .section--light {
   background: var(--paper);
   color: var(--espresso);
+  --logo-carve: var(--paper);
+}
+
+.section--roast {
+  --logo-carve: var(--roast);
 }
 
 .container {
@@ -521,8 +531,8 @@ img {
 }
 
 .preloader__mark {
-  width: 62px;
-  height: 62px;
+  width: 92px;
+  height: 92px;
   animation: spin 1.6s linear infinite;
 }
 
@@ -588,6 +598,9 @@ img {
   transform-origin: bottom;
   pointer-events: none;
   color: #fff;
+  /* Inverted on the cobalt panel so the mark stays legible */
+  --logo-fill: #fff;
+  --logo-carve: var(--cobalt);
 }
 
 .curtain--covering {
@@ -602,8 +615,8 @@ img {
 }
 
 .curtain__mark {
-  width: 54px;
-  height: 54px;
+  width: 84px;
+  height: 84px;
   opacity: 0;
 }
 
