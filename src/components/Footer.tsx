@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
 import { site } from '../data/site'
+import { TransitionLink } from '../router/TransitionLink'
 
 export function Footer() {
   return (
@@ -12,8 +12,8 @@ export function Footer() {
 
         <div className="footer__col">
           <h4>Kawiarnia</h4>
-          <Link to="/">Strona główna</Link>
-          <Link to="/menu">Menu</Link>
+          <TransitionLink to="/">Strona główna</TransitionLink>
+          <TransitionLink to="/menu">Menu</TransitionLink>
           <a href={site.mapLink} target="_blank" rel="noreferrer">
             Dojazd
           </a>

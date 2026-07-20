@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
 import { offer } from '../data/offer'
+import { TransitionLink } from '../router/TransitionLink'
 import { OfferCard } from './OfferCard'
 import { Reveal } from './Reveal'
 
@@ -30,9 +30,9 @@ export function Offer() {
 
         <Reveal delay={0.1}>
           <div style={{ marginTop: '2.5rem' }}>
-            <Link to="/menu" className="btn btn--primary">
+            <TransitionLink to="/menu" className="btn btn--primary">
               Pełne menu →
-            </Link>
+            </TransitionLink>
           </div>
         </Reveal>
       </div>

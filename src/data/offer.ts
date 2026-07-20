@@ -3,8 +3,8 @@
 // accent 'matcha' przełącza akcent kafla na zielony, reszta używa kobaltu.
 
 export interface OfferItem {
+  /** Also selects the card's line-art mark — see OFFER_MARKS. */
   id: string
-  index: string
   title: string
   description: string
   image: string
@@ -14,7 +14,6 @@ export interface OfferItem {
 export const offer: OfferItem[] = [
   {
     id: 'espresso',
-    index: '01',
     title: 'Espresso',
     description:
       'Rotujące się ziarno od zaprzyjaźnionych palarni specialty. Krótkie, intensywne, wyciągnięte z precyzją co do sekundy.',
@@ -23,7 +22,6 @@ export const offer: OfferItem[] = [
   },
   {
     id: 'na-mleku',
-    index: '02',
     title: 'Na mleku',
     description:
       'Flat white, cappuccino, latte — jedwabista mikropianka i latte art. Mleko krowie lub roślinne, do wyboru.',
@@ -32,7 +30,6 @@ export const offer: OfferItem[] = [
   },
   {
     id: 'matcha',
-    index: '03',
     title: 'Matcha',
     description:
       'Ceremonialna matcha ubijana chasenem. Na zimno lub gorąco, sama albo z mlekiem — łagodna, roślinna energia.',
@@ -41,7 +38,6 @@ export const offer: OfferItem[] = [
   },
   {
     id: 'wypieki',
-    index: '04',
     title: 'Wypieki',
     description:
       'Codziennie świeże, rzemieślnicze wypieki. Idealne dopełnienie filiżanki — najlepszy pretekst, by zostać dłużej.',

@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { useLenis } from 'lenis/react'
+import { useLocation } from 'react-router-dom'
 import { site } from '../data/site'
+import { TransitionLink } from '../router/TransitionLink'
+import { useRouteTransition } from '../router/RouteTransition'
+import { useSmoothScrollTo } from '../hooks/useSmoothScrollTo'
 
 export function NavBar() {
   const [scrolled, setScrolled] = useState(false)
-  const lenis = useLenis()
   const location = useLocation()
-  const navigate = useNavigate()
+  const go = useRouteTransition()
+  const scrollTo = useSmoothScrollTo()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -16,26 +18,20 @@ export function NavBar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const scrollToContact = (e: React.MouseEvent) => {
+  const handleContact = (e: React.MouseEvent) => {
     e.preventDefault()
-    const go = () => {
-      const el = document.getElementById('kontakt')
-      if (!el) return
-      if (lenis) lenis.scrollTo(el, { offset: -20 })
-      else el.scrollIntoView({ behavior: 'smooth' })
-    }
     if (location.pathname === '/') {
-      go()
+      scrollTo('kontakt')
     } else {
-      navigate('/')
-      // wait for Home to mount before scrolling
-      setTimeout(go, 120)
+      // Come home first, then glide down once the section exists.
+      go('/')
+      window.setTimeout(() => scrollTo('kontakt'), 700)
     }
   }
 
   return (
     <nav className={['nav', scrolled ? 'nav--scrolled' : ''].join(' ')}>
-      <Link to="/" className="nav__brand">
+      <TransitionLink to="/" className="nav__brand">
         <svg className="nav__brand-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
           <circle cx="32" cy="32" r="20" stroke="var(--cobalt)" strokeWidth="5" />
           <circle cx="32" cy="32" r="6" fill="var(--cobalt)" />
@@ -47,14 +43,14 @@ export function NavBar() {
           />
         </svg>
         {site.name}
-      </Link>
+      </TransitionLink>
 
       <div className="nav__links">
         <span className="nav__hours">{site.hoursShort}</span>
-        <Link to="/menu" className="nav__link">
+        <TransitionLink to="/menu" className="nav__link">
           Menu
-        </Link>
-        <a href="/#kontakt" className="nav__link" onClick={scrollToContact}>
+        </TransitionLink>
+        <a href="#/" className="nav__link" onClick={handleContact}>
           Kontakt
         </a>
       </div>
